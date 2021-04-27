@@ -2,7 +2,7 @@ import 'package:DarkwebScan/core/platform/app_image.dart';
 import 'package:DarkwebScan/core/presentation/widgets/action_button.dart';
 import 'package:DarkwebScan/core/presentation/widgets/input_field.dart';
 import 'package:DarkwebScan/features/darkweb_scan/presentation/state/darkweb_scan_cubit.dart';
-import 'package:DarkwebScan/features/dashboard/presentation/pages/scan_results.dart';
+import 'package:DarkwebScan/features/darkweb_scan/presentation/pages/scan_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,6 +33,10 @@ class _CredEntryViewState extends State<CredEntryView> {
   }
 
   static bool validateEmail(String value) {
+    if (value.isEmpty) {
+      return true;
+    }
+
     const pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     final regex = RegExp(pattern);

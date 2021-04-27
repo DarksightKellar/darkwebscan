@@ -1,6 +1,6 @@
 import 'package:DarkwebScan/core/platform/app_image.dart';
 import 'package:DarkwebScan/core/presentation/widgets/action_button.dart';
-import 'package:DarkwebScan/features/dashboard/presentation/pages/cred_entry_view.dart';
+import 'package:DarkwebScan/features/darkweb_scan/presentation/pages/cred_entry_view.dart';
 import 'package:flutter/material.dart';
 
 class MonitoringIntro extends StatelessWidget {

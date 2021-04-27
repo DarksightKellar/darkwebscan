@@ -1,24 +1,22 @@
 import 'package:DarkwebScan/core/platform/app_image.dart';
 import 'package:DarkwebScan/core/platform/app_theme.dart';
-import 'package:DarkwebScan/core/platform/size_config.dart';
 import 'package:DarkwebScan/features/dashboard/presentation/widgets/launcher_icon.dart';
 import 'package:DarkwebScan/features/dashboard/presentation/widgets/section_spacer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'monitoring_intro.dart';
+import '../../../darkweb_scan/presentation/pages/monitoring_intro.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final sc = SizeConfig(context: context);
+    // final sc = SizeConfig(context: context);
     const _logoSize = 80.0;
     const _headerIconSize = 30.0;
     const _launcherIconSize = 60.0;
-    const _headerVerticalMargin = 50.0;
+    // const _headerVerticalMargin = 50.0;
 
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

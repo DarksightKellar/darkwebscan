@@ -4,7 +4,7 @@ import 'package:DarkwebScan/core/presentation/widgets/action_button.dart';
 import 'package:DarkwebScan/core/presentation/widgets/input_field.dart';
 import 'package:DarkwebScan/features/darkweb_scan/domain/models/breach_model.dart';
 import 'package:DarkwebScan/features/darkweb_scan/presentation/state/darkweb_scan_cubit.dart';
-import 'package:DarkwebScan/features/dashboard/presentation/widgets/breach_tile.dart';
+import 'package:DarkwebScan/features/darkweb_scan/presentation/widgets/breach_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
