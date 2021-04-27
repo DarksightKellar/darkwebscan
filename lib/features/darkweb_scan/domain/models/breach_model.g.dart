@@ -7,11 +7,17 @@ part of 'breach_model.dart';
 // **************************************************************************
 
 _$_BreachModel _$_$_BreachModelFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['DataClasses', 'LogoPath']);
+  $checkKeys(json, requiredKeys: const [
+    'Name',
+    'Title',
+    'Domain',
+    'DataClasses',
+    'LogoPath'
+  ]);
   return _$_BreachModel(
-    name: json['name'] as String,
-    title: json['title'] as String,
-    domain: json['domain'] as String,
+    name: json['Name'] as String,
+    title: json['Title'] as String,
+    domain: json['Domain'] as String,
     compromisedData:
         (json['DataClasses'] as List)?.map((e) => e as String)?.toList(),
     logoPath: json['LogoPath'] as String,
@@ -20,9 +26,9 @@ _$_BreachModel _$_$_BreachModelFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_BreachModelToJson(_$_BreachModel instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'title': instance.title,
-      'domain': instance.domain,
+      'Name': instance.name,
+      'Title': instance.title,
+      'Domain': instance.domain,
       'DataClasses': instance.compromisedData,
       'LogoPath': instance.logoPath,
     };

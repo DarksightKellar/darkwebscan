@@ -8,6 +8,8 @@ Discover if your email has been conpromised.
 > Run `flutter pub get`
 > Run `flutter run` to test it out!
 
+To run tests, `flutter test`
+
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)

@@ -18,11 +18,11 @@ class _$BreachModelTearOff {
 
 // ignore: unused_element
   _BreachModel call(
-      {@required
+      {@JsonKey(name: 'Name', required: true)
           String name,
-      @required
+      @JsonKey(name: 'Title', required: true)
           String title,
-      @required
+      @JsonKey(name: 'Domain', required: true)
           String domain,
       @JsonKey(name: 'DataClasses', required: true)
           List<String> compromisedData,
@@ -49,8 +49,11 @@ const $BreachModel = _$BreachModelTearOff();
 
 /// @nodoc
 mixin _$BreachModel {
+  @JsonKey(name: 'Name', required: true)
   String get name;
+  @JsonKey(name: 'Title', required: true)
   String get title;
+  @JsonKey(name: 'Domain', required: true)
   String get domain;
   @JsonKey(name: 'DataClasses', required: true)
   List<String> get compromisedData;
@@ -68,9 +71,12 @@ abstract class $BreachModelCopyWith<$Res> {
           BreachModel value, $Res Function(BreachModel) then) =
       _$BreachModelCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      String title,
-      String domain,
+      {@JsonKey(name: 'Name', required: true)
+          String name,
+      @JsonKey(name: 'Title', required: true)
+          String title,
+      @JsonKey(name: 'Domain', required: true)
+          String domain,
       @JsonKey(name: 'DataClasses', required: true)
           List<String> compromisedData,
       @JsonKey(name: 'LogoPath', required: true)
@@ -113,9 +119,12 @@ abstract class _$BreachModelCopyWith<$Res>
       __$BreachModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      String title,
-      String domain,
+      {@JsonKey(name: 'Name', required: true)
+          String name,
+      @JsonKey(name: 'Title', required: true)
+          String title,
+      @JsonKey(name: 'Domain', required: true)
+          String domain,
       @JsonKey(name: 'DataClasses', required: true)
           List<String> compromisedData,
       @JsonKey(name: 'LogoPath', required: true)
@@ -157,23 +166,23 @@ class __$BreachModelCopyWithImpl<$Res> extends _$BreachModelCopyWithImpl<$Res>
 /// @nodoc
 class _$_BreachModel implements _BreachModel {
   const _$_BreachModel(
-      {@required this.name,
-      @required this.title,
-      @required this.domain,
+      {@JsonKey(name: 'Name', required: true) this.name,
+      @JsonKey(name: 'Title', required: true) this.title,
+      @JsonKey(name: 'Domain', required: true) this.domain,
       @JsonKey(name: 'DataClasses', required: true) this.compromisedData,
-      @JsonKey(name: 'LogoPath', required: true) this.logoPath})
-      : assert(name != null),
-        assert(title != null),
-        assert(domain != null);
+      @JsonKey(name: 'LogoPath', required: true) this.logoPath});
 
   factory _$_BreachModel.fromJson(Map<String, dynamic> json) =>
       _$_$_BreachModelFromJson(json);
 
   @override
+  @JsonKey(name: 'Name', required: true)
   final String name;
   @override
+  @JsonKey(name: 'Title', required: true)
   final String title;
   @override
+  @JsonKey(name: 'Domain', required: true)
   final String domain;
   @override
   @JsonKey(name: 'DataClasses', required: true)
@@ -227,11 +236,11 @@ class _$_BreachModel implements _BreachModel {
 
 abstract class _BreachModel implements BreachModel {
   const factory _BreachModel(
-      {@required
+      {@JsonKey(name: 'Name', required: true)
           String name,
-      @required
+      @JsonKey(name: 'Title', required: true)
           String title,
-      @required
+      @JsonKey(name: 'Domain', required: true)
           String domain,
       @JsonKey(name: 'DataClasses', required: true)
           List<String> compromisedData,
@@ -242,10 +251,13 @@ abstract class _BreachModel implements BreachModel {
       _$_BreachModel.fromJson;
 
   @override
+  @JsonKey(name: 'Name', required: true)
   String get name;
   @override
+  @JsonKey(name: 'Title', required: true)
   String get title;
   @override
+  @JsonKey(name: 'Domain', required: true)
   String get domain;
   @override
   @JsonKey(name: 'DataClasses', required: true)
