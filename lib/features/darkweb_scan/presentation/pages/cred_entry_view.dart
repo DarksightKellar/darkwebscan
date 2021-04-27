@@ -26,7 +26,7 @@ class _CredEntryViewState extends State<CredEntryView> {
 
     if (formKey.currentState.validate()) {
       context.read<DarkwebScanCubit>().scanWeb(
-            phone: null,
+            phone: phoneController.text,
             email: emailController.text,
           );
     }
@@ -90,27 +90,34 @@ class _CredEntryViewState extends State<CredEntryView> {
                   Material(
                     elevation: 5,
                     color: Colors.transparent,
-                    child: BlocConsumer<DarkwebScanCubit, DarkwebScanState>(
-                      listener: (_, state) {
-                        state.maybeWhen(
-                          loaded: (payload) {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(builder: (_) => const ScanResults()),
-                            );
-                          },
-                          orElse: () {},
-                        );
-                      },
-                      builder: (_, state) => ActionButton(
-                        label: state.maybeWhen(
-                          loading: (_) => const CircularProgressIndicator(),
-                          orElse: () => Text(
-                            "Search",
-                            style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+                    child: Builder(
+                      builder: (context) => BlocConsumer<DarkwebScanCubit, DarkwebScanState>(
+                        listener: (_, state) {
+                          state.maybeWhen(
+                            loaded: (payload) {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const ScanResults()),
+                              );
+                            },
+                            error: (payload) => Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(payload.error),
+                              ),
+                            ),
+                            orElse: () {},
+                          );
+                        },
+                        builder: (_, state) => ActionButton(
+                          label: state.maybeWhen(
+                            loading: (_) => const CircularProgressIndicator(),
+                            orElse: () => Text(
+                              "Search",
+                              style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+                            ),
                           ),
+                          minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                          onPressed: performSearch,
                         ),
-                        minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                        onPressed: performSearch,
                       ),
                     ),
                   )
