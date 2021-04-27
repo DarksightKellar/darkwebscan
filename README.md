@@ -1,10 +1,12 @@
-# pwn_scan
+# Pwn Scan
 
-A new Flutter project.
+Discover if your email has been conpromised.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+> Clone the repo
+> Run `flutter pub get`
+> Run `flutter run` to test it out!
 
 A few resources to get you started if this is your first Flutter project:
 
