@@ -10,7 +10,10 @@ class DarkwebScanRepositoryImpl implements DarkwebScanRepository {
 
   @override
   Future<List<BreachModel>> scanWeb({email, phone}) async {
-    final res = await guardedApiCall<List<BreachModel>>(() => _remoteDatasource.scanWeb(email: email, phone: phone));
+    final res = await guardedApiCall<List<BreachModel>>(
+      () => _remoteDatasource.scanWeb(email: email, phone: phone),
+      notFoundMsg: "No data found",
+    );
     return res;
   }
 }

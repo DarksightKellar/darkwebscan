@@ -124,7 +124,7 @@ class NetworkServiceImpl implements NetworkService {
     }
 
     final errorResult = <String, dynamic>{
-      'message': 'API: ${response.data['message']}',
+      'message': 'API: ${response.statusMessage}',
       'data': response.data,
     };
 

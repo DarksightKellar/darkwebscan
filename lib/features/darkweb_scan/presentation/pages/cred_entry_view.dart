@@ -75,16 +75,16 @@ class _CredEntryViewState extends State<CredEntryView> {
                     validator: (value) => validateEmail(value.trim()) ? null : 'Invalid email',
                   ),
                   const SizedBox(height: 30),
-                  InputField(
-                    hint: 'Mobile/Cell Phone number',
-                    value: "",
-                    controller: phoneController,
-                    focusNode: phoneFocus,
-                    textInputAction: TextInputAction.go,
-                    keyboardType: TextInputType.number,
-                    textCapitalization: TextCapitalization.none,
-                    onEditingComplete: () => formKey.currentState.validate(),
-                  ),
+                  // InputField(
+                  //   hint: 'Mobile/Cell Phone number',
+                  //   value: "",
+                  //   controller: phoneController,
+                  //   focusNode: phoneFocus,
+                  //   textInputAction: TextInputAction.go,
+                  //   keyboardType: TextInputType.number,
+                  //   textCapitalization: TextCapitalization.none,
+                  //   onEditingComplete: () => formKey.currentState.validate(),
+                  // ),
                   const SizedBox(height: 30),
 
                   Material(
