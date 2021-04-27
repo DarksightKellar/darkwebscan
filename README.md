@@ -1,20 +1,11 @@
-# Pwn Scan
+# Dark Web Scanner
 
-Discover if your email has been conpromised.
+Discover if your email has been compromised.
 
 ## Getting Started
 
-> Clone the repo
-> Run `flutter pub get`
-> Run `flutter run` to test it out!
+1. Clone the repo
+2. Run `flutter pub get`
+3. Run `flutter run` to test it out!
 
 To run tests, `flutter test`
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
