@@ -86,6 +86,7 @@ class InputField extends StatelessWidget {
             decoration: InputDecoration(
               enabled: enabled,
               border: this.border ?? border,
+              suffixIcon: suffix,
               enabledBorder: this.border ?? border,
               focusedBorder: this.border ?? border,
               errorBorder: (this.border as OutlineInputBorder ?? border).copyWith(

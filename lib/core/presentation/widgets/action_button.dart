@@ -23,23 +23,27 @@ class ActionButton extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Container(
-        padding: margin,
-        child: TextButton(
-          child: label,
-          style: ButtonStyle(
-            backgroundColor: MaterialStateColor.resolveWith(
-              (states) => enabled ? backgroundColor : AppColors.grey,
+  Widget build(BuildContext context) => Material(
+        elevation: 5,
+        color: Colors.transparent,
+        child: Container(
+          padding: margin,
+          child: TextButton(
+            child: label,
+            style: ButtonStyle(
+              backgroundColor: MaterialStateColor.resolveWith(
+                (states) => enabled ? backgroundColor : AppColors.grey,
+              ),
+              side: MaterialStateProperty.resolveWith(
+                (states) => borderSide,
+              ),
+              minimumSize: MaterialStateProperty.resolveWith(
+                (states) => minimumSize,
+              ),
+              shape: ButtonStyleButton.allOrNull(RoundedRectangleBorder(borderRadius: borderRadius)),
             ),
-            side: MaterialStateProperty.resolveWith(
-              (states) => borderSide,
-            ),
-            minimumSize: MaterialStateProperty.resolveWith(
-              (states) => minimumSize,
-            ),
-            shape: ButtonStyleButton.allOrNull(RoundedRectangleBorder(borderRadius: borderRadius)),
+            onPressed: enabled ? onPressed : null,
           ),
-          onPressed: enabled ? onPressed : null,
         ),
       );
 }

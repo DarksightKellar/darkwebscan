@@ -18,7 +18,9 @@ class DarkwebScanRemoteDatasourceImpl implements DarkwebScanRemoteDatasource {
 
   @override
   Future<List<BreachModel>> scanWeb({email, phone}) async {
-    final _result = await _networkService.getHttp('/');
+    final _result = await _networkService.getHttp('breachedaccount/${email ?? phone}', params: {
+      "truncateResponse": false,
+    });
 
     if (_result['error'] != null) {
       await handleApiFailure(

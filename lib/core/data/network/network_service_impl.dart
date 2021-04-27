@@ -16,6 +16,15 @@ class NetworkServiceImpl implements NetworkService {
     );
 
     _dio = Dio(_options);
+    _dio.interceptors.add(InterceptorsWrapper(
+      onRequest: (RequestOptions options) async {
+        options.headers.addAll({
+          "hibp-api-key": "1b9cd575365e4d02a6b47d745b776a5e",
+          "user-agent": "Darkweb Scan",
+        });
+        return options;
+      },
+    ));
   }
 
   @override

@@ -1,7 +1,10 @@
 import 'package:DarkwebScan/core/platform/app_image.dart';
 import 'package:DarkwebScan/core/presentation/widgets/action_button.dart';
 import 'package:DarkwebScan/core/presentation/widgets/input_field.dart';
+import 'package:DarkwebScan/features/darkweb_scan/presentation/state/darkweb_scan_cubit.dart';
+import 'package:DarkwebScan/features/dashboard/presentation/pages/scan_results.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CredEntryView extends StatefulWidget {
   const CredEntryView({Key key}) : super(key: key);
@@ -16,17 +19,16 @@ class _CredEntryViewState extends State<CredEntryView> {
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
 
-  final passwordFocus = FocusNode();
+  final phoneFocus = FocusNode();
 
   void performSearch() {
     FocusScope.of(context).unfocus();
 
     if (formKey.currentState.validate()) {
-      // context.read<AuthenticationCubit>().login(
-      //       email: emailController.text,
-      //       password: passwordController.text,
-      //       type: SignInType.Normal,
-      //     );
+      context.read<DarkwebScanCubit>().scanWeb(
+            phone: null,
+            email: emailController.text,
+          );
     }
   }
 
@@ -56,8 +58,7 @@ class _CredEntryViewState extends State<CredEntryView> {
                   const SizedBox(height: 55),
 
                   // FORM
-                  // ////
-
+                  // ///////////////
                   InputField(
                     hint: 'Email',
                     value: "",
@@ -66,20 +67,18 @@ class _CredEntryViewState extends State<CredEntryView> {
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
                     textCapitalization: TextCapitalization.none,
-                    onEditingComplete: passwordFocus.requestFocus,
+                    onEditingComplete: phoneFocus.requestFocus,
                     validator: (value) => validateEmail(value.trim()) ? null : 'Invalid email',
                   ),
                   const SizedBox(height: 30),
                   InputField(
-                    hint: 'Password',
+                    hint: 'Mobile/Cell Phone number',
                     value: "",
                     controller: phoneController,
-                    focusNode: passwordFocus,
-                    isPassword: true,
+                    focusNode: phoneFocus,
                     textInputAction: TextInputAction.go,
-                    keyboardType: TextInputType.visiblePassword,
+                    keyboardType: TextInputType.number,
                     textCapitalization: TextCapitalization.none,
-                    suffixText: 'Forgot password?',
                     onEditingComplete: () => formKey.currentState.validate(),
                   ),
                   const SizedBox(height: 30),
@@ -87,13 +86,28 @@ class _CredEntryViewState extends State<CredEntryView> {
                   Material(
                     elevation: 5,
                     color: Colors.transparent,
-                    child: ActionButton(
-                      label: Text(
-                        "Search",
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+                    child: BlocConsumer<DarkwebScanCubit, DarkwebScanState>(
+                      listener: (_, state) {
+                        state.maybeWhen(
+                          loaded: (payload) {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => const ScanResults()),
+                            );
+                          },
+                          orElse: () {},
+                        );
+                      },
+                      builder: (_, state) => ActionButton(
+                        label: state.maybeWhen(
+                          loading: (_) => const CircularProgressIndicator(),
+                          orElse: () => Text(
+                            "Search",
+                            style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+                          ),
+                        ),
+                        minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                        onPressed: performSearch,
                       ),
-                      minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                      onPressed: () {},
                     ),
                   )
                 ],
