@@ -2,7 +2,6 @@ import 'package:DarkwebScan/core/platform/app_image.dart';
 import 'package:DarkwebScan/core/presentation/widgets/action_button.dart';
 import 'package:DarkwebScan/core/presentation/widgets/input_field.dart';
 import 'package:DarkwebScan/features/darkweb_scan/presentation/state/darkweb_scan_cubit.dart';
-import 'package:DarkwebScan/features/darkweb_scan/presentation/pages/scan_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -94,16 +93,7 @@ class _CredEntryViewState extends State<CredEntryView> {
                       builder: (context) => BlocConsumer<DarkwebScanCubit, DarkwebScanState>(
                         listener: (_, state) {
                           state.maybeWhen(
-                            loaded: (payload) {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(builder: (_) => const ScanResults()),
-                              );
-                            },
-                            error: (payload) => Scaffold.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(payload.error),
-                              ),
-                            ),
+                            loading: (_) => Navigator.of(context).popUntil((route) => route.isFirst),
                             orElse: () {},
                           );
                         },

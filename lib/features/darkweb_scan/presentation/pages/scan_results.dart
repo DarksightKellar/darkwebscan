@@ -111,26 +111,14 @@ class _CredEntryViewState extends State<ScanResults> {
                 ),
               ),
               const SizedBox(height: 30),
-              BlocConsumer<DarkwebScanCubit, DarkwebScanState>(
-                listener: (_, state) {
-                  state.maybeWhen(
-                    loaded: (payload) {
-                      // Navigator.of(context).push(MaterialPageRoute(builder: (_) => ));
-                    },
-                    orElse: () {},
-                  );
-                },
-                builder: (_, state) => ActionButton(
-                  label: state.maybeWhen(
-                    loading: (_) => const CircularProgressIndicator(),
-                    orElse: () => Text(
-                      "Repeat Weekly?",
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
-                    ),
-                  ),
-                  minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                  onPressed: () {},
+              ActionButton(
+                label: Text(
+                  "Repeat Weekly?",
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
                 ),
+                enabled: false,
+                minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                onPressed: () {},
               ),
               const SizedBox(height: 30),
               BlocConsumer<DarkwebScanCubit, DarkwebScanState>(
