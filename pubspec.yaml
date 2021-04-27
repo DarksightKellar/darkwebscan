@@ -53,4 +53,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/svg/
+    - assets/svg/launcher_icons/
+    - assets/png/launcher_icons/
+    - assets/png/
   # flutter packages pub run build_runner build --delete-conflicting-outputs

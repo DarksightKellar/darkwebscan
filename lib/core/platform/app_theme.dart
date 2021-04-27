@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppColors {
   static const accent = Color(0xff00AAAA);
   static const primaryColor = Color(0xff023473);
+  static const actionColor = Color(0xff3E3E3E);
   static const grey = Color(0xff6D7890);
   static const error = Color(0xffFF5E5E);
   static const success = Color(0xff35CF4E);
@@ -33,7 +34,7 @@ final ThemeData appThemeLight = ThemeData(
     hintColor: AppColors.accent,
     dividerColor: const Color(0xff707070),
     errorColor: AppColors.error,
-    fontFamily: GoogleFonts.play().fontFamily,
+    fontFamily: GoogleFonts.nunito().fontFamily,
     textTheme: const TextTheme(
       headline4: TextStyle(
         fontSize: 24,
@@ -42,6 +43,11 @@ final ThemeData appThemeLight = ThemeData(
         letterSpacing: 1.1,
       ),
       bodyText1: TextStyle(
+        color: AppColors.fontColor,
+        fontSize: 18,
+        height: 1.3,
+      ),
+      bodyText2: TextStyle(
         color: AppColors.fontColor,
         fontSize: 14,
         height: 1.3,
