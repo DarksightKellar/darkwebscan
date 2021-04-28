@@ -9,3 +9,5 @@ Discover if your email has been compromised.
 3. Run `flutter run` to test it out!
 
 To run tests, `flutter test`
+
+Done!
